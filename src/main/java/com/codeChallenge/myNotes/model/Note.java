@@ -7,17 +7,20 @@ public class Note {
     public Note() {
     }
 
-    public Note(String title,String content){
+    public Note(String title, String content) {
         super();
         this.title = title;
         this.content = content;
     }
-    public String gettitle(){
+
+    public String gettitle() {
         return title;
     }
-    public String getContent(){
+
+    public String getContent() {
         return content;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
