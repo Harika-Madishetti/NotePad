@@ -33,4 +33,9 @@ public class NoteController {
     public void updateNote(@RequestBody Note note, @PathVariable String title){
         noteService.updateNote(title,note);
     }
+
+    @RequestMapping(method = RequestMethod.DELETE,value = "/notes/{title}")
+    public void deleteNote(@RequestBody Note note, @PathVariable String title){
+        noteService.deleteNote(title,note);
+    }
 }

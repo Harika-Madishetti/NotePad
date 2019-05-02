@@ -36,4 +36,8 @@ public class NoteService {
            }
        }
     }
+
+    public void deleteNote(String title, Note note) {
+        notes.removeIf(notes -> notes.gettitle().equals(title));
+    }
 }
