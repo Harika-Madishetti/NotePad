@@ -28,4 +28,9 @@ public class NoteController {
     public void addNote(@RequestBody Note note) {
         noteService.addNote(note);
     }
+
+    @RequestMapping(method = RequestMethod.PUT,value = "/notes/{title}")
+    public void updateNote(@RequestBody Note note, @PathVariable String title){
+        noteService.updateNote(title,note);
+    }
 }

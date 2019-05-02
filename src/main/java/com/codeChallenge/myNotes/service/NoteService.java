@@ -26,4 +26,14 @@ public class NoteService {
     public void addNote(Note note) {
         notes.add(note);
     }
+
+    public void updateNote(String title, Note note) {
+       for(int i = 0; i < notes.size();i++){
+           Note n = notes.get(i);
+           if(n.gettitle().equals(title)){
+                notes.set(i,note);
+                return;
+           }
+       }
+    }
 }
