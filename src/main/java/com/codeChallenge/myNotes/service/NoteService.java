@@ -1,6 +1,10 @@
 package com.codeChallenge.myNotes.service;
 
+import com.codeChallenge.myNotes.Dao.Notes;
 import com.codeChallenge.myNotes.model.Note;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,35 +13,28 @@ import java.util.List;
 
 @Service
 public class NoteService {
-    private List<Note> notes = new ArrayList<>(Arrays.asList(
-            new Note("mynotes", "Hi, I am fine here"),
-            new Note("mynotes - 2", "Hi , I should get this"),
-            new Note("mynotes - 3", "Hi , I should for sure get it")
-    ));
+
+    @Autowired
+    @Qualifier("MySql")
+    private Notes notes;
 
     public List<Note> getAllNotes() {
-        return notes;
+        return this.notes.getAllNotes();
     }
 
     public Note getNote(String title) {
-        return notes.stream().filter(notes -> notes.gettitle().equals(title)).findFirst().get();
+        return this.notes.getNotesByTitle(title);
     }
 
     public void addNote(Note note) {
-        notes.add(note);
+        this.notes.insertNotesByTitle(note);
     }
 
     public void updateNote(String title, Note note) {
-       for(int i = 0; i < notes.size();i++){
-           Note n = notes.get(i);
-           if(n.gettitle().equals(title)){
-                notes.set(i,note);
-                return;
-           }
-       }
+        this.notes.updateNotesByTitle(title,note);
     }
 
     public void deleteNote(String title, Note note) {
-        notes.removeIf(notes -> notes.gettitle().equals(title));
+        this.notes.removeNotesByTitle(title,note);
     }
 }

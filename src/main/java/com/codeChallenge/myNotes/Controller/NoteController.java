@@ -30,7 +30,7 @@ public class NoteController {
     }
 
     @RequestMapping(method = RequestMethod.PUT,value = "/notes/{title}")
-    public void updateNote(@RequestBody Note note, @PathVariable String title){
+    public void updateNote(@RequestBody Note note, @PathVariable String title)  {
         noteService.updateNote(title,note);
     }
 
