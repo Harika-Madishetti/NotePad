@@ -29,13 +29,13 @@ public class NoteController {
         noteService.addNote(note);
     }
 
-    @RequestMapping(method = RequestMethod.PUT,value = "/notes/{title}")
-    public void updateNote(@RequestBody Note note, @PathVariable String title)  {
-        noteService.updateNote(title,note);
+    @RequestMapping(method = RequestMethod.PUT, value = "/notes/{title}")
+    public void updateNote(@RequestBody Note note, @PathVariable String title) {
+        noteService.updateNote(title, note);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE,value = "/notes/{title}")
-    public void deleteNote(@RequestBody Note note, @PathVariable String title){
-        noteService.deleteNote(title,note);
+    @RequestMapping(method = RequestMethod.DELETE, value = "/notes/{title}")
+    public void deleteNote(@RequestBody Note note, @PathVariable String title) {
+        noteService.deleteNote(title, note);
     }
 }

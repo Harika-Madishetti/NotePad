@@ -4,16 +4,12 @@ import com.codeChallenge.myNotes.Dao.Notes;
 import com.codeChallenge.myNotes.model.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class NoteService {
-
     @Autowired
     @Qualifier("MySql")
     private Notes notes;
@@ -31,10 +27,10 @@ public class NoteService {
     }
 
     public void updateNote(String title, Note note) {
-        this.notes.updateNotesByTitle(title,note);
+        this.notes.updateNotesByTitle(title, note);
     }
 
     public void deleteNote(String title, Note note) {
-        this.notes.removeNotesByTitle(title,note);
+        this.notes.removeNotesByTitle(title, note);
     }
 }
