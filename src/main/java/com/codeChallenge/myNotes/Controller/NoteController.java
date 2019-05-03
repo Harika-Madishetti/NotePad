@@ -9,22 +9,20 @@ import java.util.List;
 
 @RestController
 public class NoteController {
-
     @Autowired
     private NoteService noteService;
 
-    @RequestMapping("/notes")
+    @RequestMapping(value = "/notes", method = RequestMethod.GET)
     public List<Note> getAllNotes() {
         return noteService.getAllNotes();
     }
 
-    @RequestMapping("/notes/{title}")
+    @RequestMapping(value = "/notes/{title}", method = RequestMethod.GET)
     public Note getNote(@PathVariable String title) {
         return noteService.getNote(title);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/notes")
-    //map this method to any req which is a post on /notes
     public void addNote(@RequestBody Note note) {
         noteService.addNote(note);
     }

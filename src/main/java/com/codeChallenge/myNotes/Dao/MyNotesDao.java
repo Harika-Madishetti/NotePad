@@ -44,16 +44,27 @@ public class MyNotesDao implements Notes {
 
     @Override
     public void insertNotesByTitle(Note note) {
+        final String sql = "INSERT INTO Notes (title,content) VALUES (?,?)";
+        final String title = note.gettitle();
+        final String content = note.getContent();
+        jdbcTemplate.update(sql, new Object[]{title, content});
+    }
+
+
+    @Override
+    public void updateNotesByTitle(String title, Note note) {
+        final String sql = "UPDATE Notes SET content = ? where title = ?";
+        title = note.gettitle();
+        final String content = note.getContent();
+        jdbcTemplate.update(sql, new Object[]{content, title});
 
     }
 
     @Override
     public void removeNotesByTitle(String title, Note note) {
-
+        final String sql = "DELETE FROM Notes WHERE title = ?";
+        jdbcTemplate.update(sql, title);
     }
 
-    @Override
-    public void updateNotesByTitle(String title, Note note) {
 
-    }
 }
