@@ -17,6 +17,7 @@ HELP.md
 *.iws
 *.iml
 *.ipr
+/package-lock.json
 /out/
 
 ### NetBeans ###
@@ -30,3 +31,6 @@ HELP.md
 .vscode/
 *.bat
 /gradle/
+/node_modules/
+bundle.js
+.DS_Store
