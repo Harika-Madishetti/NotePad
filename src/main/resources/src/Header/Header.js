@@ -1,13 +1,16 @@
 import React from 'react';
 
-class Header extends React.Component{
+class Header extends React.Component {
 
-    render(){
-        return(
-            <header className="headerBanner" >
-                <span className="headerdiv">Keep</span>
-            </header>
+    render() {
+        return (
+            <div>
+                <header>
+                    <h1>NotePad</h1>
+                </header>
+            </div>
         )
     }
 }
+
 export default Header;
