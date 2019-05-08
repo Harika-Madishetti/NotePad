@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Styles/StyleSheet.css'
-import NotePadModel from "./NotePadModel";
+import './Styles/App.css'
+import App from "./App";
 
-
-
-ReactDOM.render(<NotePadModel/>, document.getElementById('react'));
+ReactDOM.render(<App/>, document.getElementById('react'));

@@ -1,19 +1,62 @@
 import React from 'react';
 
 class AddNoteForm extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            titleFieldVisible: false,
+            title: '',
+            content: ''
+        }
+
+    }
+
+    handleSubmit = (notes) => {
+        notes.preventDefault();
+        if (this.state.title || this.state.content) {
+            this.setState({
+                title: '',
+                content: '',
+                titleFieldVisible: false
+            })
+        }
+    }
+    hideTitleField = () => {
+        this.setState({
+            titleFieldVisible: false
+        })
+    }
+    showTitleField = () => {
+        this.setState({
+            titleFieldVisible: true
+        })
+    }
+
     render() {
-        console.log("in addnoteform")
         return (
             <div>
                 <div className="create-form">
-                    <div className="backdrop"></div>
+                    {this.state.titleFieldVisible && (
+                        <div className="backdrop" onClick={this.hideTitleField}>
+                        </div>
+                    )}
+
                     <form onSubmit={this.handleSubmit} className="create-note">
-                        <input
-                            type="text"
-                            name="title"
-                            placeholder="Title"/>
-                        <textarea name="content"
-                                  placeholder="Take a note"
+                        {this.state.titleFieldVisible && (
+                            <input
+                                type="text"
+                                value={this.state.title}
+                                onChange={notes => this.setState({title: notes.target.value})}
+                                onFocus={this.showTitleField}
+                                name="title"
+                                placeholder="Title"/>
+                        )}
+                        <textarea
+                            value={this.state.content}
+                            onChange={content => this.setState({content: content.target.value})}
+                            onFocus={this.showTitleField}
+                            name="content"
+                            placeholder="Take a note"
                         />
                         <button type="Submit">
                             <span>&#43;</span>
