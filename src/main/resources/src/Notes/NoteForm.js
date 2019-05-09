@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AddNoteForm extends React.Component {
+class NoteForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -8,11 +8,9 @@ class AddNoteForm extends React.Component {
             title: '',
             content: ''
         }
-
     }
 
-    handleSubmit = (notes) => {
-        notes.preventDefault();
+    handleSubmit = () => {
         if (this.state.title || this.state.content) {
             this.setState({
                 title: '',
@@ -21,11 +19,13 @@ class AddNoteForm extends React.Component {
             })
         }
     }
+
     hideTitleField = () => {
         this.setState({
             titleFieldVisible: false
         })
     }
+
     showTitleField = () => {
         this.setState({
             titleFieldVisible: true
@@ -68,4 +68,4 @@ class AddNoteForm extends React.Component {
     }
 }
 
-export default AddNoteForm;
+export default NoteForm;
