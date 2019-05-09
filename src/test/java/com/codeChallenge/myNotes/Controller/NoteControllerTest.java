@@ -30,14 +30,12 @@ public class NoteControllerTest {
     Note mockNotes = new Note("mynotes", "Hi I am adding unit tests for GET Rest calls");
 
     @Test
-    public void shouldGetNotes() throws Exception {
+    public void shouldGetSingleNotes() throws Exception {
         Mockito.when(noteService.getNote(Mockito.anyString())).thenReturn(mockNotes);
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/notes/mynotes").accept(MediaType.APPLICATION_JSON);
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
-        System.out.println("getresponse");
-        String expected = "{\"title\":\"mynotes\",\"content\":\"Hi I am adding unit tests for GET Rest calls\"}";
-        System.out.println(expected);
-        JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+        String expectedResult = "{\"title\":\"mynotes\",\"content\":\"Hi I am adding unit tests for GET Rest calls\"}";
+        JSONAssert.assertEquals(expectedResult, result.getResponse().getContentAsString(), false);
     }
 
 }
