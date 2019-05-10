@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {NoteBox} from "./NoteBox";
+import NoteBox from "./NoteBox";
 
 class DisplayNotes extends React.Component {
     constructor(props) {

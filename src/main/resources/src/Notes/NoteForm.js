@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {NoteBox} from "./NoteBox";
+import NoteBox from "./NoteBox";
 
 class NoteForm extends React.Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class NoteForm extends React.Component {
             axios
                 .post('/notes/', this.state)
                 .then(response => {
-                    NoteBox
+                    <NoteBox/>
                 })
                 .catch(error => {
                     (error)
