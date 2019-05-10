@@ -1,24 +1,35 @@
 import React from 'react';
+import axios from 'axios';
+import {NoteBox} from "./NoteBox";
 
 class NoteForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            titleFieldVisible: false,
             title: '',
-            content: ''
+            content: '',
+            titleFieldVisible: false,
         }
     }
 
     handleSubmit = () => {
         if (this.state.title || this.state.content) {
-            this.setState({
-                title: '',
-                content: '',
-                titleFieldVisible: false
-            })
+            axios
+                .post('/notes/', this.state)
+                .then(response => {
+                    NoteBox
+                })
+                .catch(error => {
+                    (error)
+                })
         }
+        this.setState({
+            title: '',
+            content: '',
+            titleFieldVisible: false,
+        })
     }
+
 
     hideTitleField = () => {
         this.setState({
@@ -31,8 +42,12 @@ class NoteForm extends React.Component {
             titleFieldVisible: true
         })
     }
+    handleChange = (text) => {
+        this.setState({[text.target.name]: text.target.value})
+    }
 
     render() {
+
         return (
             <div>
                 <div className="create-form">
@@ -44,18 +59,18 @@ class NoteForm extends React.Component {
                     <form onSubmit={this.handleSubmit} className="create-note">
                         {this.state.titleFieldVisible && (
                             <input
+                                name="title"
                                 type="text"
                                 value={this.state.title}
-                                onChange={notes => this.setState({title: notes.target.value})}
+                                onChange={this.handleChange}
                                 onFocus={this.showTitleField}
-                                name="title"
                                 placeholder="Title"/>
                         )}
                         <textarea
-                            value={this.state.content}
-                            onChange={content => this.setState({content: content.target.value})}
-                            onFocus={this.showTitleField}
                             name="content"
+                            value={this.state.content}
+                            onChange={this.handleChange}
+                            onFocus={this.showTitleField}
                             placeholder="Take a note"
                         />
                         <button type="Submit">

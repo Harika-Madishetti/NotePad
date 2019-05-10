@@ -13,10 +13,18 @@ class DisplayNotes extends React.Component {
 
     componentDidMount() {
         axios.get('/notes').then((response) => {
-            this.setState({
-                notes: response.data
-            })
+            const newNotes = response.data.map(notes => {
+                return {
+                    title: notes.title,
+                    content: notes.content
+                };
+            }).reverse()
+            const newState = Object.assign({}, this.state, {
+                notes: newNotes
+            });
+            this.setState(newState)
         })
+            .catch(error => (error));
     }
 
     render() {

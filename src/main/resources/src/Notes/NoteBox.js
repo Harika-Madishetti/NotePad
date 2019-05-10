@@ -3,7 +3,7 @@ import {EditIcon} from "./EditIcon";
 
 
 export const NoteBox = (noteBox, index) => {
-    const hasNotes = noteBox
+    const hasNotes = (noteBox.notes.title || noteBox.notes.content)
     return (
         <div className="note">
             <div>
