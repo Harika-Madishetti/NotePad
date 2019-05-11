@@ -1,14 +1,29 @@
 import React from 'react'
 import {EditIcon} from "./EditIcon";
+import NoteModal from "./NoteModal";
 
-class NoteBox extends React.Component{
-    render (){
+class NoteBox extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            isClicked: false
+        }
+    }
+
+    noteSelected = (notes) => {
+        this.setState({
+            isClicked: true
+        })
+    }
+
+    render() {
         const {notes} = this.props
         const hasNotes = (notes.title || notes.content)
-        return(
+        return (
             <div className="note">
-                <div>
-                   <EditIcon/>
+                <div onClick={() => this.noteSelected(notes)}>
+                    <EditIcon/>
+                    {this.state.isClicked && <NoteModal notes={notes}/>}
                 </div>
                 {
                     hasNotes ? (
@@ -20,7 +35,7 @@ class NoteBox extends React.Component{
                                 notes.content && <pre>{notes.content}</pre>
                             }
                         </div>
-                    ):(
+                    ) : (
                         <div className="empty">
                             Empty Note
                         </div>
@@ -30,6 +45,7 @@ class NoteBox extends React.Component{
         )
     }
 }
+
 export default NoteBox
 
 

@@ -7,7 +7,6 @@ class DisplayNotes extends React.Component {
         super(props)
         this.state = {
             notes: [],
-            selected: ''
         }
     }
 
@@ -27,11 +26,12 @@ class DisplayNotes extends React.Component {
             .catch(error => (error));
     }
 
+
     render() {
         return (
             <div className="notes">
                 {this.state.notes.map((notes, index) => (
-                    <NoteBox key={index} notes={notes}>
+                    <NoteBox key={index} notes={notes} selected={this.noteSelected}>
                     </NoteBox>
                 ))}
             </div>
