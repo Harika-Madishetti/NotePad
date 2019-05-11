@@ -43,7 +43,9 @@ class NoteForm extends React.Component {
         })
     }
     handleChange = (text) => {
+        console.log("in handle change of noteform")
         this.setState({[text.target.name]: text.target.value})
+        console.log(text.target.value)
     }
 
     render() {
