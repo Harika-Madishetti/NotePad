@@ -1,19 +1,30 @@
 package com.codeChallenge.myNotes.model;
 
 public class Note {
+    private int id;
     private String title;
     private String content;
+
 
     public Note() {
     }
 
-    public Note(String title, String content) {
+    public Note(int id, String title, String content) {
         super();
         this.title = title;
         this.content = content;
+        this.id = id;
     }
 
-    public String gettitle() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
         return title;
     }
 

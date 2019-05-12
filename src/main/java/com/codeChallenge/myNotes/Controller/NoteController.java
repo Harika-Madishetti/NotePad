@@ -17,9 +17,9 @@ public class NoteController {
         return noteService.getAllNotes();
     }
 
-    @RequestMapping(value = "/notes/{title}", method = RequestMethod.GET)
-    public Note getNote(@PathVariable String title) {
-        return noteService.getNote(title);
+    @RequestMapping(value = "/notes/{id}", method = RequestMethod.GET)
+    public Note getNote(@PathVariable int id) {
+        return noteService.getNote(id);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/notes")
@@ -27,13 +27,13 @@ public class NoteController {
         noteService.addNote(note);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/notes/{title}")
-    public void updateNote(@RequestBody Note note, @PathVariable String title) {
-        noteService.updateNote(title, note);
+    @RequestMapping(method = RequestMethod.PUT, value = "/notes/{id}")
+    public void updateNote(@RequestBody Note note) {
+        noteService.updateNote(note);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/notes/{title}")
-    public void deleteNote(@RequestBody Note note, @PathVariable String title) {
-        noteService.deleteNote(title, note);
+    @RequestMapping(method = RequestMethod.DELETE, value = "/notes/{id}")
+    public void deleteNote(@RequestBody Note note, @PathVariable int id) {
+        noteService.deleteNote(id, note);
     }
 }

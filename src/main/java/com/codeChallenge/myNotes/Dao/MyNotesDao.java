@@ -20,8 +20,9 @@ public class MyNotesDao implements Notes {
     private static class NoteRowMapper implements RowMapper<Note> {
 
         @Override
-        public Note mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+        public Note mapRow(ResultSet resultSet, int i) throws SQLException {
             Note mynotes = new Note();
+            mynotes.setId(resultSet.getInt("id"));
             mynotes.setTitle(resultSet.getString("title"));
             mynotes.setContent(resultSet.getString("content"));
             return mynotes;
@@ -30,40 +31,41 @@ public class MyNotesDao implements Notes {
 
     @Override
     public List<Note> getAllNotes() {
-        final String sql = "SELECT title, content FROM Notes";
+        final String sql = "SELECT id,title, content FROM Notes";
         List<Note> notes = jdbcTemplate.query(sql, new NoteRowMapper());
         return notes;
     }
 
     @Override
-    public Note getNotesByTitle(String title) {
-        final String sql = "SELECT title, content FROM Notes where title = ?";
-        Note myNotes = jdbcTemplate.queryForObject(sql, new NoteRowMapper(), title);
+    public Note getNotesByTitle(int id) {
+        final String sql = "SELECT id,title, content FROM Notes where id = ?";
+        Note myNotes = jdbcTemplate.queryForObject(sql, new NoteRowMapper(), id);
         return myNotes;
     }
 
     @Override
     public void insertNotesByTitle(Note note) {
         final String sql = "INSERT INTO Notes (title,content) VALUES (?,?)";
-        final String title = note.gettitle();
+        final String title = note.getTitle();
         final String content = note.getContent();
         jdbcTemplate.update(sql, new Object[]{title, content});
     }
 
 
     @Override
-    public void updateNotesByTitle(String title, Note note) {
-        final String sql = "UPDATE Notes SET content = ? where title = ?";
-        title = note.gettitle();
+    public void updateNotesByTitle(Note note) {
+        final String sql = "UPDATE Notes SET title =? , content = ? where id = ?";
+        final int id = note.getId();
+        final String title = note.getTitle();
         final String content = note.getContent();
-        jdbcTemplate.update(sql, new Object[]{content, title});
+        jdbcTemplate.update(sql, new Object[]{title, content, id});
 
     }
 
     @Override
-    public void removeNotesByTitle(String title, Note note) {
-        final String sql = "DELETE FROM Notes WHERE title = ?";
-        jdbcTemplate.update(sql, title);
+    public void removeNotesByTitle(int id, Note note) {
+        final String sql = "DELETE FROM Notes WHERE id = ?";
+        jdbcTemplate.update(sql, id);
     }
 
 
