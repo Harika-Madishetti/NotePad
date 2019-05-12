@@ -30,7 +30,7 @@ public class NoteService {
         this.notes.updateNotesByTitle(note);
     }
 
-    public void deleteNote(int id, Note note) {
-        this.notes.removeNotesByTitle(id, note);
+    public void deleteNote(int id) {
+        this.notes.removeNotesByTitle(id);
     }
 }

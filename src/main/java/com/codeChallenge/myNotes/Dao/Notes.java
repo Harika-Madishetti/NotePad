@@ -11,7 +11,7 @@ public interface Notes {
 
     void insertNotesByTitle(Note note);
 
-    void removeNotesByTitle(int id, Note note);
+    void removeNotesByTitle(int id);
 
     void updateNotesByTitle(Note note);
 }

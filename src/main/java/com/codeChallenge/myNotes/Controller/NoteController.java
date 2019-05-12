@@ -33,7 +33,7 @@ public class NoteController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/notes/{id}")
-    public void deleteNote(@RequestBody Note note, @PathVariable int id) {
-        noteService.deleteNote(id, note);
+    public void deleteNote(@PathVariable int id) {
+        noteService.deleteNote(id);
     }
 }

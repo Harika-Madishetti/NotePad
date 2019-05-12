@@ -63,7 +63,7 @@ public class MyNotesDao implements Notes {
     }
 
     @Override
-    public void removeNotesByTitle(int id, Note note) {
+    public void removeNotesByTitle(int id) {
         final String sql = "DELETE FROM Notes WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }
