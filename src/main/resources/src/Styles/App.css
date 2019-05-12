@@ -171,7 +171,7 @@
     align-items: center
 }
 
-.edit-form .modal-footer .submit-button {
+.edit-form .modal-footer .modal-button {
     height: 36px;
     padding: 8px 24px;
     border-radius: 4px;
@@ -180,8 +180,8 @@
     font-size: 14px
 }
 
-.edit-form .modal-footer .submit-button:focus,
-.edit-form .modal-footer .submit-button:hover {
+.edit-form .modal-footer .modal-button:focus,
+.edit-form .modal-footer .modal-button:hover {
     background-color: rgba(0, 0, 0, .08)
 }
 
