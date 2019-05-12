@@ -7,11 +7,13 @@ class NoteModal extends React.Component {
         this.state = {
             title: this.props.notes.title,
             content: this.props.notes.content,
-            id: this.props.notes.id
+            id: this.props.notes.id,
         }
+        console.log(this.state.id)
     }
 
-    submitHandler = () => {
+    submitHandler = (e) => {
+        console.log("insubmit")
         const note = {
             title: this.state.title,
             content: this.state.content,
@@ -23,12 +25,21 @@ class NoteModal extends React.Component {
         })
     }
 
+    deleteHandler = (e) => {
+        console.log("in delete")
+        axios.delete(`/notes/${this.state.id}`).then(response => {
+        }).catch(error => {
+            (error)
+        })
+    }
+
     render() {
         const {notes} = this.props
         return (
             <div>{notes && (
                 <div className="modal-backdrop"
-                     id="modalBox">
+                     id="modalBox"
+                >
                     <div className="modal"
                          role="dialog"
                          aria-labelledby="modalTitle"
@@ -56,6 +67,7 @@ class NoteModal extends React.Component {
                             />
                             <footer className="modal-footer">
                                 <button
+                                    onClick={this.deleteHandler}
                                     type="button"
                                     className="modal-button">
                                     <span>Delete</span>
