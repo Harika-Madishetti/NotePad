@@ -1,5 +1,5 @@
 import React from 'react'
-import {EditIcon} from "./EditIcon";
+import {Edit} from "../Icons/Edit";
 import NoteModal from "./NoteModal";
 
 class NoteBox extends React.Component {
@@ -22,7 +22,7 @@ class NoteBox extends React.Component {
         return (
             <div className="note">
                 <div onClick={() => this.noteSelected(notes)}>
-                    <EditIcon/>
+                    <Edit/>
                     {this.state.isClicked && <NoteModal notes={notes}/>}
                 </div>
                 {

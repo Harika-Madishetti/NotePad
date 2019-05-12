@@ -6,6 +6,7 @@ import DisplayNotes from "./Notes/DisplayNotes";
 class App extends Component {
 
     render() {
+
         return (
             <div className="app">
                 <Header/>

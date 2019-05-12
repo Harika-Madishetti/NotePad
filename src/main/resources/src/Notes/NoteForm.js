@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import NoteBox from "./NoteBox";
 
 class NoteForm extends React.Component {
     constructor(props) {
@@ -14,22 +13,16 @@ class NoteForm extends React.Component {
 
     handleSubmit = () => {
         if (this.state.title || this.state.content) {
-            axios
+            return axios
                 .post('/notes/', this.state)
                 .then(response => {
-                    <NoteBox/>
+                    (response)
                 })
                 .catch(error => {
                     (error)
                 })
         }
-        this.setState({
-            title: '',
-            content: '',
-            titleFieldVisible: false,
-        })
     }
-
 
     hideTitleField = () => {
         this.setState({
@@ -43,9 +36,7 @@ class NoteForm extends React.Component {
         })
     }
     handleChange = (text) => {
-        console.log("in handle change of noteform")
         this.setState({[text.target.name]: text.target.value})
-        console.log(text.target.value)
     }
 
     render() {

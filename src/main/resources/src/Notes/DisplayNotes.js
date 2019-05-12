@@ -14,6 +14,7 @@ class DisplayNotes extends React.Component {
         axios.get('/notes').then((response) => {
             const newNotes = response.data.map(notes => {
                 return {
+                    id: notes.id,
                     title: notes.title,
                     content: notes.content
                 };

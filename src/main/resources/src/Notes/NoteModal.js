@@ -1,9 +1,26 @@
 import React from 'react';
+import axios from 'axios';
 
 class NoteModal extends React.Component {
-    state = {
-        title: this.props.notes.title,
-        content: this.props.notes.content
+    constructor(props) {
+        super(props)
+        this.state = {
+            title: this.props.notes.title,
+            content: this.props.notes.content,
+            id: this.props.notes.id
+        }
+    }
+
+    submitHandler = () => {
+        const note = {
+            title: this.state.title,
+            content: this.state.content,
+            id: this.state.id
+        }
+        axios.put('/notes/${id}', note).then(response => {
+        }).catch(error => {
+            (error)
+        })
     }
 
     render() {
@@ -15,10 +32,9 @@ class NoteModal extends React.Component {
                     <div className="modal"
                          role="dialog"
                          aria-labelledby="modalTitle"
-                         aria-describedby="modalContent">
-                        <form
-                            className="edit-form"
-                        >
+                         aria-describedby="modalContent"
+                    >
+                        <form className="edit-form" onSubmit={this.submitHandler}>
                             <input
                                 id="modalTitle"
                                 onChange={(text) => {
@@ -31,7 +47,7 @@ class NoteModal extends React.Component {
                             <textarea
                                 id="modalContent"
                                 onChange={(text) => {
-                                    this.setState({content: text.target.content})
+                                    this.setState({content: text.target.value})
                                 }}
                                 name="content"
                                 placeholder="Note..."
@@ -41,10 +57,10 @@ class NoteModal extends React.Component {
                             <footer className="modal-footer">
                                 <button
                                     type="button"
-                                    className="delete-button"
-                                >
+                                    className="modal-button">
+                                    <span>Delete</span>
                                 </button>
-                                <button type="submit" className="submit-button">
+                                <button type="submit" className="modal-button">
                                     <span>Close</span>
                                 </button>
                             </footer>
