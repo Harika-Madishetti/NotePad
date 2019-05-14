@@ -1,10 +1,12 @@
 package com.codeChallenge.myNotes.model;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @Entity
 public class Note {
     @Id
