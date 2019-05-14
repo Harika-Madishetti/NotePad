@@ -17,7 +17,7 @@ public class Note {
     public Note() {
     }
 
-    public Note(String title, String content,int id) {
+    public Note(int id,String title, String content) {
         super();
         this.title = title;
         this.content = content;

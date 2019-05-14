@@ -13,21 +13,21 @@ class NoteModal extends React.Component {
     }
 
     submitHandler = (e) => {
-        console.log("insubmit")
         const note = {
             title: this.state.title,
             content: this.state.content,
             id: this.state.id
         }
         axios.put('/notes/${id}', note).then(response => {
+            (response)
         }).catch(error => {
             (error)
         })
     }
 
     deleteHandler = (e) => {
-        console.log("in delete")
         axios.delete(`/notes/${this.state.id}`).then(response => {
+            (response)
         }).catch(error => {
             (error)
         })
