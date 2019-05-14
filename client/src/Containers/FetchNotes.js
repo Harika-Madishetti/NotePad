@@ -1,17 +1,21 @@
 import React from 'react';
 import axios from 'axios';
-import NoteBox from "./NoteBox";
+import NoteBox from "../Components/NoteBox";
 
-class DisplayNotes extends React.Component {
+
+class FetchNotes extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             notes: [],
+            isClicked: false
         }
     }
 
+
+
     componentDidMount() {
-        axios.get('/notes').then((response) => {
+        axios.get('http://localhost:8080/notes').then((response) => {
             const newNotes = response.data.map(notes => {
                 return {
                     id: notes.id,
@@ -27,12 +31,11 @@ class DisplayNotes extends React.Component {
             .catch(error => (error));
     }
 
-
     render() {
         return (
             <div className="notes">
                 {this.state.notes.map((notes, index) => (
-                    <NoteBox key={index} notes={notes} selected={this.noteSelected}>
+                    <NoteBox key={index} notes={notes} noteSelected={this.noteSelected} isClicked={this.state.isClicked}>
                     </NoteBox>
                 ))}
             </div>
@@ -40,4 +43,4 @@ class DisplayNotes extends React.Component {
     }
 }
 
-export default DisplayNotes
+export default FetchNotes

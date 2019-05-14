@@ -1,5 +1,5 @@
-import React from 'react'
-import NoteModal from "./NoteModal";
+import React from 'react';
+import HandleNoteModal from "../Containers/HandleNoteModal";
 
 class NoteBox extends React.Component {
     constructor(props) {
@@ -10,7 +10,8 @@ class NoteBox extends React.Component {
     }
 
     noteSelected = (notes) => {
-        this.setState({
+        console.log(this.state.isClicked)
+        return this.setState({
             isClicked: true
         })
     }
@@ -18,11 +19,12 @@ class NoteBox extends React.Component {
     render() {
         const {notes} = this.props
         const hasNotes = (notes.title || notes.content)
+
         return (
             <div className="note" onClick={() => this.noteSelected(notes)}>
-                <div>
-                    {this.state.isClicked && <NoteModal notes={notes}/>}
-                </div>
+                    <div>
+                        {this.state.isClicked && <HandleNoteModal notes={notes}/>}
+                    </div>
                 {
                     hasNotes ? (
                         <div>
@@ -40,10 +42,10 @@ class NoteBox extends React.Component {
                     )
                 }
             </div>
+
         )
     }
 }
-
 export default NoteBox
 
 

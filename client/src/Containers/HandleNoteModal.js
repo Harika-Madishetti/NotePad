@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-class NoteModal extends React.Component {
+class HandleNoteModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -9,24 +9,23 @@ class NoteModal extends React.Component {
             content: this.props.notes.content,
             id: this.props.notes.id,
         }
-        console.log(this.state.id)
     }
 
-    submitHandler = (e) => {
+    submitHandler = () => {
         const note = {
             title: this.state.title,
             content: this.state.content,
             id: this.state.id
         }
-        axios.put('/notes/${id}', note).then(response => {
+        axios.put('http://localhost:8080/notes/${id}', note).then(response => {
             (response)
         }).catch(error => {
             (error)
         })
     }
 
-    deleteHandler = (e) => {
-        axios.delete(`/notes/${this.state.id}`).then(response => {
+    deleteHandler = () => {
+        axios.delete(`http://localhost:8080/notes/${this.state.id}`).then(response => {
             (response)
         }).catch(error => {
             (error)
@@ -85,4 +84,4 @@ class NoteModal extends React.Component {
     }
 }
 
-export default NoteModal
+export default HandleNoteModal
