@@ -29,17 +29,17 @@ public class NoteControllerTest {
     @MockBean
     private NoteService noteService;
 
-//    @Test
-//    public void shouldGetSingleNotes() throws Exception {
-//        Note mockNotes = new Note(1,"mynotes", "Hi I am adding unit tests for GET Rest calls");
-//        Mockito.when(noteService.getNote(Mockito.anyInt())).thenReturn(mockNotes);
-//        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/notes").accept(MediaType.APPLICATION_JSON);
-//        System.out.println(requestBuilder);
-//        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
-//        System.out.println(result);
-//        String expectedResult = "{\"title\":\"mynotes\",\"content\":\"Hi I am adding unit tests for GET Rest calls\"}";
-//        JSONAssert.assertEquals(expectedResult, result.getResponse().getContentAsString(), false);
-//    }
+    @Test
+    public void shouldGetSingleNotes() throws Exception {
+        Note mockNotes = new Note(1,"mynotes", "Hi I am adding unit tests for GET Rest calls");
+        Mockito.when(noteService.getNote(Mockito.anyInt())).thenReturn(mockNotes);
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/notes/1").accept(MediaType.APPLICATION_JSON);
+        System.out.println(requestBuilder);
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        System.out.println(result);
+        String expectedResult = "{\"title\":\"mynotes\",\"content\":\"Hi I am adding unit tests for GET Rest calls\"}";
+        JSONAssert.assertEquals(expectedResult, result.getResponse().getContentAsString(), false);
+    }
 
     @Test
     public void shouldGetAllNotes() throws Exception {
