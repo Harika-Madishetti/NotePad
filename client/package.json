@@ -8,19 +8,22 @@
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
-    "react-scripts": "0.9.x"
+    "react-scripts": "0.9.x",
+    "react-test-renderer": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
-    "react-hot-loader": "^4.8.4"
+    "react-hot-loader": "^4.8.4",
+    "regenerator-runtime": "^0.13.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject",
     "watch": "webpack --watch -d"
   }
