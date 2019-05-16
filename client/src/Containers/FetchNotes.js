@@ -8,10 +8,8 @@ class FetchNotes extends React.Component {
         super(props)
         this.state = {
             notes: [],
-            isClicked: false
         }
     }
-
 
 
     componentDidMount() {
@@ -35,7 +33,8 @@ class FetchNotes extends React.Component {
         return (
             <div className="notes">
                 {this.state.notes.map((notes, index) => (
-                    <NoteBox key={index} notes={notes} noteSelected={this.noteSelected} isClicked={this.state.isClicked}>
+                    <NoteBox key={index} notes={notes} noteSelected={this.noteSelected}
+                             isClicked={this.state.isClicked}>
                     </NoteBox>
                 ))}
             </div>

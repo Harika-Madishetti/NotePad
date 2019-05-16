@@ -13,8 +13,7 @@ class HandleNoteForm extends React.Component {
         }
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
+    handleSubmit = () => {
         if (this.state.title || this.state.content) {
             return axios
                 .post('http://localhost:8080/notes/', this.state)

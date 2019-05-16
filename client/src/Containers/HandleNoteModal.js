@@ -44,7 +44,7 @@ class HandleNoteModal extends React.Component {
                          aria-labelledby="modalTitle"
                          aria-describedby="modalContent"
                     >
-                        <form className="edit-form" onSubmit={this.submitHandler}>
+                        <form className="edit-form">
                             <input
                                 id="modalTitle"
                                 onChange={(text) => {
@@ -67,11 +67,11 @@ class HandleNoteModal extends React.Component {
                             <footer className="modal-footer">
                                 <button
                                     onClick={this.deleteHandler}
-                                    type="button"
+                                    type="submit"
                                     className="modal-button">
                                     <span>Delete</span>
                                 </button>
-                                <button type="submit" className="modal-button">
+                                <button type="submit" onClick={this.submitHandler} className="modal-button">
                                     <span>Close</span>
                                 </button>
                             </footer>
