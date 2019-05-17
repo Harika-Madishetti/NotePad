@@ -19,8 +19,14 @@ A Simple Springboot NotePad Application bootstraped with create React App and in
     
 **User Interfase of Application** 
 
-<img width="944" alt="Screen Shot 2019-05-17 at 8 04 39 PM" src="https://user-images.githubusercontent.com/40588508/57935805-4492f580-78e0-11e9-9f94-5786612594a3.png">
+_Home Page:_
+
+<img width="800" alt="Screen Shot 2019-05-17 at 8 04 39 PM" src="https://user-images.githubusercontent.com/40588508/57935805-4492f580-78e0-11e9-9f94-5786612594a3.png">
+
+
+_On Selecting a single Notes:_
+ 
+<img width="800" alt="Screen Shot 2019-05-17 at 8 47 23 PM" src="https://user-images.githubusercontent.com/40588508/57938340-a6a22980-78e5-11e9-8d25-87ae23352e59.png">
+
    
- 
- 
  
