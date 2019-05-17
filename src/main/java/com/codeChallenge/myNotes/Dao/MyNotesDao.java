@@ -37,14 +37,14 @@ public class MyNotesDao implements Notes {
     }
 
     @Override
-    public Note getNotesByTitle(int id) {
+    public Note getNotesById(int id) {
         final String sql = "SELECT id,title, content FROM Notes where id = ?";
         Note myNotes = jdbcTemplate.queryForObject(sql, new NoteRowMapper(), id);
         return myNotes;
     }
 
     @Override
-    public void insertNotesByTitle(Note note) {
+    public void insertNotes(Note note) {
         final String sql = "INSERT INTO Notes (title,content) VALUES (?,?)";
         final String title = note.getTitle();
         final String content = note.getContent();
@@ -53,7 +53,7 @@ public class MyNotesDao implements Notes {
 
 
     @Override
-    public void updateNotesByTitle(Note note) {
+    public void updateNotes(Note note) {
         final String sql = "UPDATE Notes SET title =? , content = ? where id = ?";
         final int id = note.getId();
         final String title = note.getTitle();
@@ -63,7 +63,7 @@ public class MyNotesDao implements Notes {
     }
 
     @Override
-    public void removeNotesByTitle(int id) {
+    public void removeNotesById(int id) {
         final String sql = "DELETE FROM Notes WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }

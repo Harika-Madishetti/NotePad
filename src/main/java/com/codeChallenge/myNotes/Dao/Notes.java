@@ -7,11 +7,11 @@ import java.util.List;
 public interface Notes {
     List<Note> getAllNotes();
 
-    Note getNotesByTitle(int id);
+    Note getNotesById(int id);
 
-    void insertNotesByTitle(Note note);
+    void insertNotes(Note note);
 
-    void removeNotesByTitle(int id);
+    void removeNotesById(int id);
 
-    void updateNotesByTitle(Note note);
+    void updateNotes(Note note);
 }

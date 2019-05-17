@@ -19,18 +19,18 @@ public class NoteService {
     }
 
     public Note getNote(int id) {
-        return this.notes.getNotesByTitle(id);
+        return this.notes.getNotesById(id);
     }
 
     public void addNote(Note note) {
-        this.notes.insertNotesByTitle(note);
+        this.notes.insertNotes(note);
     }
 
     public void updateNote(Note note) {
-        this.notes.updateNotesByTitle(note);
+        this.notes.updateNotes(note);
     }
 
     public void deleteNote(int id) {
-        this.notes.removeNotesByTitle(id);
+        this.notes.removeNotesById(id);
     }
 }
