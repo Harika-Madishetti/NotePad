@@ -1,6 +1,7 @@
 A Simple NotePad Application bootstraped with create React App
 
-#Tech Stack
+**Tech Stack**
+
  1)Aws RDS(Aurora db)
  
  2)front-end React
@@ -15,7 +16,6 @@ A Simple NotePad Application bootstraped with create React App
     -->Fetching and Displaying Notes from Db
     -->Modify/Update any Selected Notes
     -->Delete a selected Notes  
- 
  
  
  
