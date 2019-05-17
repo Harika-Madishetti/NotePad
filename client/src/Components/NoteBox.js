@@ -10,7 +10,6 @@ class NoteBox extends React.Component {
     }
 
     noteSelected = (notes) => {
-        console.log(this.state.isClicked)
         return this.setState({
             isClicked: true
         })
