@@ -1,14 +1,29 @@
 version: '3'
 services:
-  mynotes:
+  server:
      image: mynotes
      build:
        context: ./
        dockerfile: Dockerfile
-     ports:
-       - 8080:8080
      volumes:
        - /data/myNotes-app
+
+
+  server2:
+     image: mynotes
+     build:
+        context: ./
+        dockerfile: Dockerfile
+     volumes:
+        - /data/myNotes-app
+
+
+  loadbalancer:
+      build: ./loadBalancer
+      links:
+        - server
+        - server2
+
 
   client:
      image: client
@@ -18,5 +33,5 @@ services:
      ports:
         - 3000:3000
      depends_on:
-       - mynotes
+       - server
      command: npm start
