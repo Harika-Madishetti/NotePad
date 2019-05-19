@@ -5,7 +5,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "enzyme-adapter-react-16": "^1.13.0",
     "jest": "^24.8.0",
+    "jest-environment-enzyme": "^7.0.2",
+    "jest-enzyme": "^7.0.2",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
@@ -21,6 +24,18 @@
     "babel-loader": "^8.0.6",
     "react-hot-loader": "^4.8.4",
     "regenerator-runtime": "^0.13.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "/Users/harikam/Downloads/myNotes/client/node_modules/babel-jest"
+    },
+    "setupFiles": [
+      "/Users/harikam/Downloads/myNotes/client/src/testConfig.js"
+    ],
+    "setupFilesAfterEnv": [
+      "jest-enzyme"
+    ],
+    "testEnvironment": "enzyme"
   },
   "scripts": {
     "start": "react-scripts start",
