@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import NoteBox from "../Components/NoteBox";
+import NoteBox from "../Containers/NoteBox";
 
 
 class FetchNotes extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import HandleNoteModal from "../Containers/HandleNoteModal";
+import HandleNoteModal from "./HandleNoteModal";
 
 class NoteBox extends React.Component {
     constructor(props) {
