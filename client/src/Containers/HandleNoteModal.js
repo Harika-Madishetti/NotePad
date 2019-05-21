@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import {delNotes} from "../service/NotePadService";
+import {delNotes, modifyNotes} from "../service/NotePadService";
 
 class HandleNoteModal extends React.Component {
     constructor(props) {
@@ -18,11 +17,7 @@ class HandleNoteModal extends React.Component {
             content: this.state.content,
             id: this.state.id
         }
-        axios.put('http://localhost:8080/notes/${id}', note).then(response => {
-            (response)
-        }).catch(error => {
-            (error)
-        })
+        modifyNotes(note, note.id)
     }
 
     deleteHandler = () => {
