@@ -18,12 +18,11 @@ class NoteBox extends React.Component {
     render() {
         const {notes} = this.props
         const hasNotes = (notes.title || notes.content)
-
         return (
             <div className="note" onClick={() => this.noteSelected(notes)}>
-                    <div>
-                        {this.state.isClicked && <HandleNoteModal notes={notes}/>}
-                    </div>
+                <div>
+                    {this.state.isClicked && <HandleNoteModal notes={notes}/>}
+                </div>
                 {
                     hasNotes ? (
                         <div>
@@ -45,6 +44,7 @@ class NoteBox extends React.Component {
         )
     }
 }
+
 export default NoteBox
 
 

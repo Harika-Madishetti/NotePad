@@ -13,9 +13,9 @@ class HandleNoteForm extends React.Component {
         }
     }
 
-    handleSubmit = () => {
+    handleSubmit = async () => {
         if (this.state.title || this.state.content) {
-            return axios
+            return await axios
                 .post('http://localhost:8080/notes/', this.state)
                 .then(response => {
                     (response)
