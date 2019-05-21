@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import NoteBox from "../Containers/NoteBox";
+import {getNotes} from "../service/NotePadService";
 
 
 class FetchNotes extends React.Component {
@@ -12,12 +12,12 @@ class FetchNotes extends React.Component {
     }
 
    componentDidMount() {
-         axios.get('http://localhost:8080/notes').then((response) => {
-            const newNotes = response.data.reverse()
-            this.setState({
-                notes: newNotes
-            })
-        }).catch(error => (error));
+       getNotes().then(response => {
+           const newNotes = response.reverse()
+           this.setState({
+               notes:newNotes
+           })
+       })
     }
 
     render() {
