@@ -11,7 +11,19 @@ export const getNotes = () => {
         }
     })
 }
-
+export const addNotes = (note) => {
+    return new Promise(function (resolve, reject) {
+        try {
+            axios.post('http://localhost:8080/notes', note).then(response => {
+                console.log("response")
+                console.log(response)
+                resolve(response)
+            })
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
 export const modifyNotes = (note, id) => {
     return new Promise(function (resolve, reject) {
         try {
