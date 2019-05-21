@@ -1,10 +1,15 @@
 import React from 'react';
-import renderer from "react-test-renderer";
-import NoteForm from "./NoteForm";
+import { shallow, mount } from 'enzyme';
+import NoteForm from '../NoteForm'
 
-test('Renders NoteForm',() =>{
-    const component = renderer.create(
-        <NoteForm/> ,);
-    let Form = component.toJSON();
-    expect(Form).toMatchSnapshot();
-});
+describe("Noteform component", () => {
+    const component = shallow(<NoteForm/>)
+    it("should render the NoteForm Component", () => {
+        expect(component.getElement()).toMatchSnapshot();
+    })
+    it("should handle click event",() => {
+        const output = shallow(<NoteForm titleFieldVisible="mockTitleFieldVisible"/>)
+        output.simulate('click');
+        expect(output.state().titleFieldVisible).toEqual(true)
+    })
+})
