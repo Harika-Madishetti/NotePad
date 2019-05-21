@@ -1,6 +1,6 @@
 import React from 'react';
 import NoteForm from "../Components/NoteForm";
-import axios from "axios/index";
+import {addNotes} from "../service/NotePadService";
 
 class HandleNoteForm extends React.Component {
 
@@ -15,16 +15,11 @@ class HandleNoteForm extends React.Component {
 
     handleSubmit = async () => {
         if (this.state.title || this.state.content) {
-            return await axios
-                .post('http://localhost:8080/notes/', this.state)
-                .then(response => {
-                    (response)
-                })
-                .catch(error => {
-                    (error)
-                })
+            const note = this.state
+            await addNotes(note)
         }
     }
+
     hideTitleField = () => {
         this.setState({
             titleFieldVisible: false
