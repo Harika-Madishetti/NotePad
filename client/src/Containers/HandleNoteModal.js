@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {delNotes} from "../service/NotePadService";
 
 class HandleNoteModal extends React.Component {
     constructor(props) {
@@ -25,11 +26,8 @@ class HandleNoteModal extends React.Component {
     }
 
     deleteHandler = () => {
-        axios.delete(`http://localhost:8080/notes/${this.state.id}`).then(response => {
-            (response)
-        }).catch(error => {
-            (error)
-        })
+        const id = this.state.id;
+        delNotes(id)
     }
 
     render() {
