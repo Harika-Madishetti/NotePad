@@ -1,5 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:mysql://student-developer.cccltpmhplcd.ap-southeast-1.rds.amazonaws.com:3306/studentDevDb
-    data-username: studentDevDb
-    data-password: Nikhitha1230
