@@ -34,4 +34,3 @@ HELP.md
 /node_modules/
 bundle.js
 .DS_Store
-/src/main/resources
