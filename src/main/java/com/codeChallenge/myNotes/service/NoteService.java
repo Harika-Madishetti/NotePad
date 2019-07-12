@@ -1,5 +1,6 @@
 package com.codeChallenge.myNotes.service;
 
+import com.codeChallenge.myNotes.Dao.MyNotesDao;
 import com.codeChallenge.myNotes.Dao.Notes;
 import com.codeChallenge.myNotes.model.Note;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,25 +13,25 @@ import java.util.List;
 public class NoteService {
     @Autowired
     @Qualifier("MySql")
-    private Notes notes;
+    private MyNotesDao myNotesDao;
 
     public List<Note> getAllNotes() {
-        return this.notes.getAllNotes();
+        return myNotesDao.getAllNotes();
     }
 
     public Note getNote(int id) {
-        return this.notes.getNotesById(id);
+        return myNotesDao.getNotesById(id);
     }
 
     public void addNote(Note note) {
-        this.notes.insertNotes(note);
+        myNotesDao.insertNotes(note);
     }
 
     public void updateNote(Note note) {
-        this.notes.updateNotes(note);
+        myNotesDao.updateNotes(note);
     }
 
     public void deleteNote(int id) {
-        this.notes.removeNotesById(id);
+        myNotesDao.removeNotesById(id);
     }
 }
