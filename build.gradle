@@ -31,8 +31,14 @@ dependencies {
 	compile group: 'com.zaxxer', name: 'HikariCP', version: '2.3.2'
 	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
 	compile group: 'org.springframework', name: 'spring-jdbc', version: '4.1.4.RELEASE'
-	runtime 'org.springframework.boot:spring-boot-devtools'
+	compile group: 'org.springframework', name: 'spring-jdbc', version: '5.1.8.RELEASE'
+	runtime 'org.springframework.boot:spring-boot-devtools'   // to reload or livereload
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 	testCompile group: 'org.springframework', name: 'spring-test'
 	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+	compile('org.springframework.boot:spring-boot-starter-jdbc:1.2.7.RELEASE')
+	runtimeOnly('com.h2database:h2') // for configuring h2 database
+	testCompile group: 'com.h2database', name: 'h2', version: '1.4.184'  // for configuring h2 database for unit tests in test scope
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6' // for configuring h2 database for unit tests in test scope
+	compile('org.springframework.boot:spring-boot-starter-jdbc:1.2.7.RELEASE')
 }
