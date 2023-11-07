@@ -8,7 +8,7 @@ A Simple Springboot NotePad Application bootstraped with create React App and in
  
  3)Backend Springboot Rest Application
   
- 4)Docker containers are used    
+ 4)Docker containers are used Respectively.    
      
 **Features**
 
